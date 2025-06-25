@@ -1,3 +1,6 @@
+import copy
+from dataclasses import dataclass
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -20,8 +23,6 @@ from torchao.quantization.quant_api import _replace_with_custom_fn_if_matches_fi
 from torchao.dtypes import to_affine_quantized_intx_static
 from torchao.core.config import AOBaseConfig
 from torchao.quantization.transform_module import register_quantize_module_handler
-import copy
-from dataclasses import dataclass
 
 from .core import (
     QAKDConfig,
@@ -84,8 +85,6 @@ def insert_observers_(model, act_obs, weight_obs):
 class QuantizedLinear(torch.nn.Module):
     def __init__(
         self,
-        in_features: int,
-        out_features: int,
         act_obs: torch.nn.Module,
         weight_obs: torch.nn.Module,
         weight: torch.Tensor,

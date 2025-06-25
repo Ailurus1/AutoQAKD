@@ -1,7 +1,3 @@
-"""
-Core classes and configurations for AutoQAKD.
-"""
-
 import torch
 import torch.nn as nn
 import os
@@ -184,7 +180,7 @@ class QAKDModel:
         if self.config.device == "cuda" and not torch.cuda.is_available():
             self.config.device = "cpu"
 
-    def train_teacher(self, train_loader, **kwargs) -> TeacherModel:
+    def train_teacher(self, train_loader) -> TeacherModel:
         from .models import get_teacher_model
 
         self.teacher = get_teacher_model(  # type: ignore
