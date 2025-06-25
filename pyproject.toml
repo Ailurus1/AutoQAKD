@@ -1,0 +1,22 @@
+[project]
+name = "AutoQAKD"
+version = "0.1.0"
+authors = ["Ailurus"]
+description = ""
+requires-python = ">=3.11"
+
+dependencies = [
+    "pre-commit",
+    "torch>=2.6.4",
+    "torchao>=0.1.0",
+    "tqdm>=4.60.0",
+    "datasets>=2.0.0",
+    "torchvision>=0.15.0",
+    "transformers>=4.20.0",
+    "numpy",
+    "pytest"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
